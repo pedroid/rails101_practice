@@ -4,8 +4,8 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-root 'c_groups#index'
-resources:c_groups
+root 'cgroups#index'
+resources:cgroups
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
