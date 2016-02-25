@@ -1,5 +1,5 @@
 class CGroupsController < ApplicationController
 	def index
-		flash[:notice]="good morning"
+		@groups = MGroup.all
 	end
 end
