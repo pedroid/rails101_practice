@@ -6,6 +6,14 @@ class GroupsController < ApplicationController
 	def new
 		@group = Group.new
 	end
+
+	def show
+		@group = Group.find(params[:id])
+	end	
+
+	def edit
+		@group = Group.find(params[:id])
+	end
 	def create
 		@group = Group.create(group_params)
 
@@ -13,6 +21,15 @@ class GroupsController < ApplicationController
 			redirect_to groups_path
 		else 
 			render :new
+		end
+	end
+	def update
+		@group = Group.find(params[:id])
+
+		if @group.update(group_params)
+			redirect_to groups_path, notice: "edit successful"
+		else
+			render :edit
 		end
 	end
 	private
