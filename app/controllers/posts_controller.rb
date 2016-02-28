@@ -14,7 +14,7 @@ class PostsController < ApplicationController
 		end
 	end
 	def edit
-		@group = Group.find(params[:group_id]
+		@group = Group.find(params[:group_id])
 		@post = @group.posts.find(params[:id])
 	end
 	def update
@@ -26,6 +26,13 @@ class PostsController < ApplicationController
 		else
 			render :edit
 		end
+	end
+	def destroy
+		@group = Group.find(params[:group_id])
+		@post = @group.posts.find(params[:id])
+		
+		@post.destroy
+		redirect_to group_path(@group), alert:"deleted!"
 	end
 
 	private
